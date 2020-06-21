@@ -39,7 +39,7 @@ def self.create(name, grade)
   student
 end
 def self.new_from_db(row)
-student = self.new(row[1], row[2],row[3])
+student = self.new(row[1], row[2],row[0])
 student
 end
 def self.find_by_name(name)
