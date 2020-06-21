@@ -41,20 +41,21 @@ end
 def self.new_from_db(row)
 student = self.new(row[1], row[2])
 student.id = row[0]
-student
+return student
 end
 def self.find_by_name(name)
 sql = <<-SQL
 SELECT * FROM students WHERE name = ?
 SQL
 self.new_from_db(DB[:conn].execute(sql, name))
+
 end
 def update
 sql = <<-SQL
   UPDATE students SET name = ?, grade = ? WHERE id = ?
   SQL
   DB[:conn].execute(sql, self.name, self.grade, self.id)
-  self
+  
 end
 end
 
