@@ -47,7 +47,7 @@ def self.find_by_name(name)
 sql = <<-SQL
 SELECT * FROM students WHERE name = ?
 SQL
-self.new_from_db(DB[:conn].excute(sql, name))
+self.new_from_db(DB[:conn].execute(sql, name))
 end
 def update
 sql = <<-SQL
